@@ -1,0 +1,38 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+//apply plugin: 'com.amplifyframework.amplifytools'
+buildscript {
+    ext.kotlin_version = "1.7.0"
+    ext.awsVersion = '2.8.+'
+    repositories {
+        google()
+        //noinspection JcenterRepositoryObsolete
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://jitpack.io"
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'com.google.gms:google-services:4.3.14'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0"
+        classpath 'com.amplifyframework:amplify-tools-gradle-plugin:1.0.2'
+        classpath "com.amazonaws:aws-android-sdk-appsync-gradle-plugin:$awsVersion"
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.0'
+        classpath("io.deepmedia.tools:publisher:0.6.0")
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        //noinspection JcenterRepositoryObsolete
+        jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
